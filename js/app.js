@@ -1,3 +1,15 @@
+let currentFilter = "all";
+
+function getFilteredTasks() {
+  if (currentFilter === "active") {
+    return taskList.filter(task => !task.completed);
+  }
+  if (currentFilter === "completed") {
+    return taskList.filter(task => task.completed);
+  }
+  return taskList;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadTasks();
   renderTasks();
@@ -9,10 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = input.value.trim();
     if (title === "") return;
 
-    addTask(title);
+    const result = addTask(title);
+    if (!result) {
+      alert("This task already exists.");
+      return;
+    }
+
     saveTasks();
     renderTasks();
-
     input.value = "";
   });
 
@@ -33,5 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
       saveTasks();
       renderTasks();
     }
+  });
+
+  const filterButtons = document.getElementById("filterButtons");
+
+  filterButtons.addEventListener("click", (e) => {
+    if (!e.target.dataset.filter) return;
+    currentFilter = e.target.dataset.filter;
+    renderTasks();
   });
 });

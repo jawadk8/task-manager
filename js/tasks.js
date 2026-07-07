@@ -10,6 +10,14 @@ function createTask(title) {
 let taskList = [];
 
 function addTask(title) {
+  const isDuplicate = taskList.some(
+    task => task.title.toLowerCase() === title.toLowerCase()
+  );
+
+  if (isDuplicate) {
+    return null;
+  }
+
   const newTask = createTask(title);
   taskList.push(newTask);
   return newTask;

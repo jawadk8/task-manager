@@ -2,7 +2,7 @@ function renderTasks() {
   const listEl = document.getElementById("taskListEl");
   listEl.innerHTML = "";
 
-  taskList.forEach(task => {
+getFilteredTasks().forEach(task => {
     const li = document.createElement("li");
 
     const span = document.createElement("span");
