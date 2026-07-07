@@ -1,13 +1,23 @@
 let currentFilter = "all";
+let searchQuery = "";
 
 function getFilteredTasks() {
+  let result = taskList;
+
   if (currentFilter === "active") {
-    return taskList.filter(task => !task.completed);
+    result = result.filter(task => !task.completed);
   }
   if (currentFilter === "completed") {
-    return taskList.filter(task => task.completed);
+    result = result.filter(task => task.completed);
   }
-  return taskList;
+
+  if (searchQuery.trim() !== "") {
+    result = result.filter(task =>
+      task.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
+  return result;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -56,6 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
   filterButtons.addEventListener("click", (e) => {
     if (!e.target.dataset.filter) return;
     currentFilter = e.target.dataset.filter;
+    renderTasks();
+  });
+
+  const searchInput = document.getElementById("searchInput");
+
+  searchInput.addEventListener("input", () => {
+    searchQuery = searchInput.value;
     renderTasks();
   });
 });
