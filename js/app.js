@@ -15,4 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     input.value = "";
   });
+
+  const listEl = document.getElementById("taskListEl");
+
+  listEl.addEventListener("click", (e) => {
+    const action = e.target.dataset.action;
+    const id = Number(e.target.dataset.id);
+
+    if (action === "toggle") {
+      toggleComplete(id);
+      saveTasks();
+      renderTasks();
+    }
+
+    if (action === "delete") {
+      deleteTask(id);
+      saveTasks();
+      renderTasks();
+    }
+  });
 });
