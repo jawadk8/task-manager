@@ -2,7 +2,17 @@ function renderTasks() {
   const listEl = document.getElementById("taskListEl");
   listEl.innerHTML = "";
 
-getFilteredTasks().forEach(task => {
+  const tasks = getFilteredTasks();
+
+  if (tasks.length === 0) {
+    const emptyMsg = document.createElement("li");
+    emptyMsg.textContent = "No tasks found.";
+    emptyMsg.classList.add("empty-state");
+    listEl.appendChild(emptyMsg);
+    return;
+  }
+
+  tasks.forEach(task => {
     const li = document.createElement("li");
 
     const span = document.createElement("span");
