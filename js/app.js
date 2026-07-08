@@ -43,9 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("taskInput");
   const addBtn = document.getElementById("addBtn");
 
-  addBtn.addEventListener("click", () => {
+addBtn.addEventListener("click", () => {
     const title = input.value.trim();
-    if (title === "") return;
+
+    if (title === "") {
+      alert("Task cannot be empty.");
+      return;
+    }
+
+    if (title.length > 100) {
+      alert("Task is too long (max 100 characters).");
+      return;
+    }
 
     const result = addTask(title);
     if (!result) {
