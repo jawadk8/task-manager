@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("taskInput");
   const addBtn = document.getElementById("addBtn");
 
-addBtn.addEventListener("click", () => {
+  addBtn.addEventListener("click", () => {
     const title = input.value.trim();
 
     if (title === "") {
@@ -74,9 +74,15 @@ addBtn.addEventListener("click", () => {
     const id = Number(e.target.dataset.id);
 
     if (action === "toggle") {
-      toggleComplete(id);
+      const task = toggleComplete(id);
       saveTasks();
       renderTasks();
+
+      if (task && task.completed) {
+        const updatedLi = document.querySelector(`button[data-id="${id}"]`).closest("li");
+        updatedLi.classList.add("completing");
+        setTimeout(() => updatedLi.classList.remove("completing"), 400);
+      }
     }
 
     if (action === "delete") {

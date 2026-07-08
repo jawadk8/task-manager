@@ -2,6 +2,7 @@ function renderTasks() {
   const listEl = document.getElementById("taskListEl");
   listEl.innerHTML = "";
   updateFilterButtons();
+  updateProgressBar();
 
   const tasks = getFilteredTasks();
 
@@ -48,4 +49,18 @@ function updateFilterButtons() {
       btn.classList.remove("active-filter");
     }
   });
+}
+
+function updateProgressBar() {
+  const total = taskList.length;
+  const completed = taskList.filter(task => task.completed).length;
+  const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+
+  const progressText = document.getElementById("progressText");
+  const progressPercent = document.getElementById("progressPercent");
+  const progressFill = document.getElementById("progressFill");
+
+  progressText.textContent = `${completed} of ${total} completed`;
+  progressPercent.textContent = `${percent}%`;
+  progressFill.style.width = `${percent}%`;
 }
