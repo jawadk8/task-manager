@@ -1,6 +1,6 @@
 # Task Manager
 
-A working task manager built using HTML, CSS, Javascript. Built as a project for my Hexler Tech Bootcamp/Internship.
+A working task manager built using HTML, CSS, and JavaScript. Built as a project for my Hexler Tech Bootcamp/Internship.
 
 **Live Demo:** [https://jawadk8.github.io/task-manager/](https://jawadk8.github.io/task-manager/)
 
@@ -39,7 +39,7 @@ task-manager/
 1. Clone the repository:
 
 ```bash
-   git clone https://jawadk8.github.io/task-manager.git
+   git clone https://github.com/jawadk8/task-manager.git
 ```
 
 2. Navigate into the project folder:
