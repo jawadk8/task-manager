@@ -7,33 +7,39 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Task Manager</h1>
+    <div class="app-container">
+      <h1>Task Manager</h1>
 
-    <button id="themeToggle">🌙 Dark Mode</button>
+      <div class="controls-panel">
+        <div class="toolbar">
+          <button id="themeToggle">🌙 Dark Mode</button>
+          <input
+            type="text"
+            id="taskInput"
+            placeholder="Add a new task"
+            maxlength="100"
+          />
+          <button id="addBtn">Add</button>
+        </div>
 
-    <input
-      type="text"
-      id="taskInput"
-      placeholder="Add a new task"
-      maxlength="100"
-    />
-    <button id="addBtn">Add</button>
+        <div class="toolbar">
+          <input type="text" id="searchInput" placeholder="Search tasks..." />
+          <select id="sortSelect">
+            <option value="date-desc">Newest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="alpha-asc">A → Z</option>
+          </select>
+        </div>
 
-    <input type="text" id="searchInput" placeholder="Search tasks..." />
+        <div id="filterButtons">
+          <button data-filter="all">All</button>
+          <button data-filter="active">Active</button>
+          <button data-filter="completed">Completed</button>
+        </div>
+      </div>
 
-    <div id="filterButtons">
-      <button data-filter="all">All</button>
-      <button data-filter="active">Active</button>
-      <button data-filter="completed">Completed</button>
+      <ul id="taskListEl"></ul>
     </div>
-
-    <select id="sortSelect">
-      <option value="date-desc">Newest first</option>
-      <option value="date-asc">Oldest first</option>
-      <option value="alpha-asc">A → Z</option>
-    </select>
-
-    <ul id="taskListEl"></ul>
 
     <script src="js/tasks.js"></script>
     <script src="js/storage.js"></script>
