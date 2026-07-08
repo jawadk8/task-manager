@@ -35,6 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
   loadTasks();
   renderTasks();
 
+  const theme = loadTheme();
+  if (theme === "dark") {
+    document.body.classList.add("dark-theme");
+  }
+
   const input = document.getElementById("taskInput");
   const addBtn = document.getElementById("addBtn");
 
@@ -92,5 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
   sortSelect.addEventListener("change", () => {
     currentSort = sortSelect.value;
     renderTasks();
+  });
+
+  const themeToggle = document.getElementById("themeToggle");
+
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+    const newTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+    saveTheme(newTheme);
   });
 });
