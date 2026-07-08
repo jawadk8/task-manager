@@ -36,9 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
   loadTasks();
   renderTasks();
 
+  const themeToggle = document.getElementById("themeToggle");
+
   const theme = loadTheme();
   if (theme === "dark") {
     document.body.classList.add("dark-theme");
+    themeToggle.textContent = "☀️";
   }
 
   const input = document.getElementById("taskInput");
@@ -150,12 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTasks();
   });
 
-  const themeToggle = document.getElementById("themeToggle");
-
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-theme");
-    const newTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
-    saveTheme(newTheme);
+    const isDark = document.body.classList.contains("dark-theme");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+    saveTheme(isDark ? "dark" : "light");
   });
 
   input.addEventListener("keydown", (e) => {

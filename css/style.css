@@ -46,11 +46,37 @@ body {
   margin: 0 auto;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
 h1 {
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
+}
+
+.theme-toggle-btn {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 18px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--card-bg);
+  opacity: 0.85;
 }
 
 .app-container > * {
@@ -169,10 +195,22 @@ ul#taskListEl li button[data-action="delete"]:hover {
   display: flex;
   gap: 10px;
   margin-bottom: 16px;
+  align-items: center;
 }
 
 .toolbar input[type="text"] {
   flex: 1;
+}
+
+.task-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.task-input-group input {
+  width: 100%;
 }
 
 #filterButtons {
@@ -207,6 +245,11 @@ ul#taskListEl li button[data-action="delete"]:hover {
 
   .toolbar {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar > button {
+    width: 100%;
   }
 
   .toolbar input[type="text"] {
@@ -302,9 +345,4 @@ ul#taskListEl li.editing {
   font-size: 13px;
   color: var(--text-muted);
   margin-top: 4px;
-}
-
-#taskDescInput {
-  width: 100%;
-  margin-bottom: 16px;
 }

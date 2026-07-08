@@ -13,24 +13,28 @@
   </head>
   <body>
     <div class="app-container">
-      <h1>Task Manager</h1>
+      <div class="app-header">
+        <h1>Task Manager</h1>
+        <button id="themeToggle" class="theme-toggle-btn">🌙</button>
+      </div>
 
       <div class="controls-panel">
         <div class="toolbar">
-          <button id="themeToggle">🌙 Dark Mode</button>
-          <input
-            type="text"
-            id="taskInput"
-            placeholder="Add a new task"
-            maxlength="100"
-          />
+          <div class="task-input-group">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Add a new task"
+              maxlength="100"
+            />
+            <input
+              type="text"
+              id="taskDescInput"
+              placeholder="Add a description (optional)"
+            />
+          </div>
           <button id="addBtn">Add</button>
         </div>
-        <input
-          type="text"
-          id="taskDescInput"
-          placeholder="Add a description (optional)"
-        />
 
         <div class="toolbar">
           <input type="text" id="searchInput" placeholder="Search tasks..." />
