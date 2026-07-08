@@ -1,18 +1,20 @@
 :root {
-  --bg: #f7f6f3;
+  --bg: #eef0f7;
+  --bg-gradient: linear-gradient(160deg, #f4f1ff 0%, #eef0f7 40%, #eaf4f2 100%);
   --card-bg: #ffffff;
-  --text: #1f2229;
-  --text-muted: #767a85;
+  --text: #23252b;
+  --text-muted: #6b6f7d;
   --primary: #6c5ce7;
   --primary-hover: #5a4bd1;
   --danger: #e0575b;
-  --danger-bg: #fbeaea;
-  --border: #e4e2dd;
-  --shadow: 0 2px 8px rgba(20, 20, 30, 0.06);
+  --danger-bg: #fdecec;
+  --border: #e6e4f0;
+  --shadow: 0 4px 16px rgba(76, 63, 158, 0.08);
 }
 
 body.dark-theme {
   --bg: #14141c;
+  --bg-gradient: none;
   --card-bg: #1e1e29;
   --text: #ececf1;
   --text-muted: #9a9aa8;
@@ -32,7 +34,8 @@ body.dark-theme {
 
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  background-color: var(--bg);
+  background: var(--bg-gradient), var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   padding: 40px 20px;
   transition: background-color 0.25s ease, color 0.25s ease;
@@ -184,7 +187,6 @@ ul#taskListEl li button[data-action="delete"]:hover {
 }
 
 #filterButtons button:hover {
-  background-color: var(--danger-bg);
   background-color: color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
