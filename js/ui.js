@@ -1,6 +1,7 @@
 function renderTasks() {
   const listEl = document.getElementById("taskListEl");
   listEl.innerHTML = "";
+  updateFilterButtons();
 
   const tasks = getFilteredTasks();
 
@@ -35,5 +36,16 @@ function renderTasks() {
     li.appendChild(completeBtn);
     li.appendChild(deleteBtn);
     listEl.appendChild(li);
+  });
+}
+
+function updateFilterButtons() {
+  const buttons = document.querySelectorAll("#filterButtons button");
+  buttons.forEach(btn => {
+    if (btn.dataset.filter === currentFilter) {
+      btn.classList.add("active-filter");
+    } else {
+      btn.classList.remove("active-filter");
+    }
   });
 }
