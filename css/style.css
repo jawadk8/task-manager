@@ -165,3 +165,35 @@ body.dark-theme .controls-panel {
 .controls-panel #filterButtons {
   margin-bottom: 0;
 }
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .toolbar input[type="text"] {
+    width: 100%;
+  }
+
+  #filterButtons {
+    flex-wrap: wrap;
+  }
+
+  ul#taskListEl li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  ul#taskListEl li span {
+    margin-right: 0;
+  }
+
+  ul#taskListEl li button {
+    margin-left: 0;
+  }
+}
