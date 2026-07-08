@@ -106,4 +106,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const newTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
     saveTheme(newTheme);
   });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.key === "Enter") {
+      addBtn.click();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "/" && document.activeElement !== input && document.activeElement !== searchInput) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+
+    if (e.key === "Escape" && document.activeElement === searchInput) {
+      searchInput.value = "";
+      searchQuery = "";
+      renderTasks();
+    }
+  });
 });
