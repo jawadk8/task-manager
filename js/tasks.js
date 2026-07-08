@@ -1,7 +1,8 @@
-function createTask(title) {
+function createTask(title, description = "") {
   return {
     id: Date.now(),
     title: title,
+    description: description,
     completed: false,
     createdAt: new Date().toISOString()
   };
@@ -9,7 +10,7 @@ function createTask(title) {
 
 let taskList = [];
 
-function addTask(title) {
+function addTask(title, description = "") {
   const isDuplicate = taskList.some(
     task => task.title.toLowerCase() === title.toLowerCase()
   );
@@ -18,7 +19,7 @@ function addTask(title) {
     return null;
   }
 
-  const newTask = createTask(title);
+  const newTask = createTask(title, description);
   taskList.push(newTask);
   return newTask;
 }

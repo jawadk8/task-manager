@@ -17,10 +17,61 @@ function renderTasks() {
   tasks.forEach(task => {
     const li = document.createElement("li");
 
+    if (editingTaskId === task.id) {
+      li.classList.add("editing");
+
+      const titleInput = document.createElement("input");
+      titleInput.type = "text";
+      titleInput.value = task.title;
+      titleInput.maxLength = 100;
+      titleInput.dataset.editField = "title";
+
+      const descInput = document.createElement("input");
+      descInput.type = "text";
+      descInput.value = task.description || "";
+      descInput.placeholder = "Add a description (optional)";
+      descInput.dataset.editField = "description";
+
+      const saveBtn = document.createElement("button");
+      saveBtn.textContent = "Save";
+      saveBtn.dataset.action = "save-edit";
+      saveBtn.dataset.id = task.id;
+
+      const cancelBtn = document.createElement("button");
+      cancelBtn.textContent = "Cancel";
+      cancelBtn.dataset.action = "cancel-edit";
+
+      const editFields = document.createElement("div");
+      editFields.classList.add("edit-fields");
+      editFields.appendChild(titleInput);
+      editFields.appendChild(descInput);
+
+      const editActions = document.createElement("div");
+      editActions.classList.add("edit-actions");
+      editActions.appendChild(saveBtn);
+      editActions.appendChild(cancelBtn);
+
+      li.appendChild(editFields);
+      li.appendChild(editActions);
+      listEl.appendChild(li);
+      return;
+    }
+
+    const textWrap = document.createElement("div");
+    textWrap.classList.add("task-text");
+
     const span = document.createElement("span");
     span.textContent = task.title;
     if (task.completed) {
       span.style.textDecoration = "line-through";
+    }
+    textWrap.appendChild(span);
+
+    if (task.description) {
+      const descEl = document.createElement("p");
+      descEl.classList.add("task-description");
+      descEl.textContent = task.description;
+      textWrap.appendChild(descEl);
     }
 
     const completeBtn = document.createElement("button");
@@ -28,13 +79,19 @@ function renderTasks() {
     completeBtn.dataset.action = "toggle";
     completeBtn.dataset.id = task.id;
 
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.dataset.action = "edit";
+    editBtn.dataset.id = task.id;
+
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.dataset.action = "delete";
     deleteBtn.dataset.id = task.id;
 
-    li.appendChild(span);
+    li.appendChild(textWrap);
     li.appendChild(completeBtn);
+    li.appendChild(editBtn);
     li.appendChild(deleteBtn);
     listEl.appendChild(li);
   });
