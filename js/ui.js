@@ -89,10 +89,14 @@ function renderTasks() {
     deleteBtn.dataset.action = "delete";
     deleteBtn.dataset.id = task.id;
 
+    const actions = document.createElement("div");
+    actions.classList.add("task-actions");
+    actions.appendChild(completeBtn);
+    actions.appendChild(editBtn);
+    actions.appendChild(deleteBtn);
+
     li.appendChild(textWrap);
-    li.appendChild(completeBtn);
-    li.appendChild(editBtn);
-    li.appendChild(deleteBtn);
+    li.appendChild(actions);
     listEl.appendChild(li);
   });
 }
