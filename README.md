@@ -1,6 +1,6 @@
 # Task Manager
 
-A working task manager built using HTML, CSS, Javascript. Built as a project for my Hexler Tech Bootcamp/Internship.
+A working task manager built using HTML, CSS, and JavaScript. Built as a project for my Hexler Tech Bootcamp/Internship.
 
 **Live Demo:** [https://jawadk8.github.io/task-manager/](https://jawadk8.github.io/task-manager/)
 
@@ -17,13 +17,22 @@ Built using:
 
 Consists of the following features:
 
-- Add new tasks
-- Mark tasks as completed
+- Add new tasks with an optional description
+- Mark tasks as completed (with a satisfying completion animation)
+- Edit existing tasks (title and description)
 - Delete individual tasks
-- Edit existing tasks
-- Tasks saved using Local Storage
-- Responsive design for desktop and mobile
-- Clean and user-friendly interface
+- Duplicate task prevention
+- Search tasks in real time
+- Filter tasks by All / Active / Completed
+- Sort tasks by newest, oldest, or alphabetically
+- Visual progress bar showing completion percentage
+- Dark/light theme toggle with saved preference
+- Keyboard shortcuts (Ctrl+Enter to add, "/" to search, Esc to clear search)
+- Form validation (empty and duplicate task prevention, character limit)
+- Empty state handling ("No tasks found")
+- Tasks and theme preference saved using Local Storage
+- Fully responsive design for desktop and mobile
+- Clean, modern interface with custom color system and typography
 
 ## Folder Structure
 
@@ -39,7 +48,7 @@ task-manager/
 1. Clone the repository:
 
 ```bash
-   git clone https://jawadk8.github.io/task-manager.git
+   git clone https://github.com/jawadk8/task-manager.git
 ```
 
 2. Navigate into the project folder:
