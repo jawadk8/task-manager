@@ -17,13 +17,22 @@ Built using:
 
 Consists of the following features:
 
-- Add new tasks
-- Mark tasks as completed
+- Add new tasks with an optional description
+- Mark tasks as completed (with a satisfying completion animation)
+- Edit existing tasks (title and description)
 - Delete individual tasks
-- Edit existing tasks
-- Tasks saved using Local Storage
-- Responsive design for desktop and mobile
-- Clean and user-friendly interface
+- Duplicate task prevention
+- Search tasks in real time
+- Filter tasks by All / Active / Completed
+- Sort tasks by newest, oldest, or alphabetically
+- Visual progress bar showing completion percentage
+- Dark/light theme toggle with saved preference
+- Keyboard shortcuts (Ctrl+Enter to add, "/" to search, Esc to clear search)
+- Form validation (empty and duplicate task prevention, character limit)
+- Empty state handling ("No tasks found")
+- Tasks and theme preference saved using Local Storage
+- Fully responsive design for desktop and mobile
+- Clean, modern interface with custom color system and typography
 
 ## Folder Structure
 
